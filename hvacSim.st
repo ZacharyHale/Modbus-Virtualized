@@ -5,10 +5,17 @@ PROGRAM hvac
   END_VAR
   VAR
     GT1_OUT : BOOL;
+    LT13_OUT : BOOL;
   END_VAR
 
   GT1_OUT := GT(TempSensor, 80);
-  Fan := GT1_OUT;
+  IF GT1_OUT THEN
+    Fan := TRUE; (*set*)
+  END_IF;
+  LT13_OUT := LT(TempSensor, 70);
+  IF LT13_OUT THEN
+    Fan := FALSE; (*reset*)
+  END_IF;
 END_PROGRAM
 
 
