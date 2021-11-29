@@ -17,7 +17,7 @@ def loop_a(t):
 def loop_b(t):
 
     while 1:
-        time.sleep(0.2)
+        time.sleep(1)
         fan = client.read_coils(0, 1)
         if fan.bits[0] == 0:
             t.value += 1
